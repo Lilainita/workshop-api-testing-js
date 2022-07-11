@@ -43,7 +43,10 @@ describe('Consuming DELETE Method with isomorphic-fetch', () => {
 
   describe('Get the Gist', () => {
     before(async () => {
-      getGist = await fetch(`${rta.url}`, { method: 'GET', headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` } });
+      getGist = await fetch(`${rta.url}`, {
+        method: 'GET',
+        headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` }
+      });
     });
     it('Gist found', () => {
       expect(getGist.status).to.equal(StatusCodes.OK);
@@ -52,7 +55,10 @@ describe('Consuming DELETE Method with isomorphic-fetch', () => {
 
   describe('Delete the Gist', () => {
     before(async () => {
-      getGist = await fetch(`${rta.url}`, { method: 'DELETE', headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` } });
+      getGist = await fetch(`${rta.url}`, {
+        method: 'DELETE',
+        headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` }
+      });
     });
     it('Gist deleted', () => {
       expect(getGist.status).to.equal(StatusCodes.NO_CONTENT);
@@ -61,7 +67,10 @@ describe('Consuming DELETE Method with isomorphic-fetch', () => {
 
   describe('Verify Gist', () => {
     before(async () => {
-      getGist = await fetch(`${rta.url}`, { method: 'GET', headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` } });
+      getGist = await fetch(`${rta.url}`, {
+        method: 'GET',
+        headers: { Authorization: `token ${process.env.ACCESS_TOKEN}` }
+      });
     });
     it('Verify if Gist was Deleted', () => {
       expect(getGist.status).to.equal(StatusCodes.NOT_FOUND);
